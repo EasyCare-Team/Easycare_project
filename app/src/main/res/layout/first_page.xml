@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="318dp"
+        android:layout_height="155dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/logo" />
+
+    <LinearLayout
+        android:layout_width="384dp"
+        android:layout_height="72dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:paddingRight="10dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            app:tabTextColor="@color/green"
+            app:tabIndicatorColor="@color/green"
+            android:id="@+id/tabLayout_id">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_up" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+        <!--        <Button-->
+        <!--            android:layout_width="180dp"-->
+        <!--            android:layout_height="107dp"-->
+        <!--            android:layout_marginBottom="20dp"-->
+        <!--            android:text="Sign In"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="40dp"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            android:background="@drawable/round">-->
+
+        <!--        </Button>-->
+
+        <!--        <Button-->
+        <!--            android:layout_width="180dp"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_marginBottom="20dp"-->
+        <!--            android:text="Sign Up"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="40dp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            android:background="@drawable/round">-->
+
+        <!--        </Button>-->
+
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+
+        android:id="@+id/viewpager_id"/>
+</RelativeLayout>
