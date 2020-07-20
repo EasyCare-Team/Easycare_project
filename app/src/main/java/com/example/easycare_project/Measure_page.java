@@ -22,6 +22,7 @@ public class Measure_page extends MainActivity {
         LayoutInflater inflater = (LayoutInflater) this
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
        inflater.inflate(R.layout.measure, contentFrameLayout);
+
        // drawer.addView(contentView, 0);
         cardView1 = findViewById(R.id.card_view1);
         cardView2 = findViewById(R.id.card_view2);
