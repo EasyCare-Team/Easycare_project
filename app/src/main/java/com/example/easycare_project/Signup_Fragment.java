@@ -46,33 +46,53 @@ public class Signup_Fragment extends Fragment {
                 String user = e2.getText().toString().trim();
                 String pwd =  e3.getText().toString().trim();
                 String cnf_pwd = e4.getText().toString().trim();
+                if(!(db.CheckIsInDBorNot(user))) {
+                    Toast.makeText(getContext(), "User already exists", Toast.LENGTH_SHORT).show();
+                }
 
-                if (pwd.equals(cnf_pwd)) {
-                    long val = db.addUser(email, user, pwd);
-                    if (val > 0){
-                        Toast.makeText(getContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();
-                        e1.setText("");
-                        e2.setText("");
+                    if (email.equals("")  && user.equals("")&& pwd.equals("") && cnf_pwd.equals("")) {
+                    Toast.makeText(getContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
+                }
+                else{
+
+
+                        if((pwd.length() >= 5) && (cnf_pwd.length() >= 5)) {
+                        if (pwd.equals(cnf_pwd)) {
+
+                                long val = db.addUser(email, user, pwd);
+                            if (val > 0) {
+                                Toast.makeText(getContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();
+                                e1.setText("");
+                                e2.setText("");
+                                e3.setText("");
+                                e4.setText("");
+
+                            } else {
+                                Toast.makeText(getContext(), "Registration error", Toast.LENGTH_SHORT).show();
+                                e1.setText("");
+                                e2.setText("");
+                                e3.setText("");
+                                e4.setText("");
+                            }
+                        } else {
+                            Toast.makeText(getContext(), "Password does not match", Toast.LENGTH_SHORT).show();
+//                        e1.setText("");
+//                        e2.setText("");
+                            e3.setText("");
+                            e4.setText("");
+                        }
+                    }
+                    else{
+                        Toast.makeText(getContext(), "Password should be at least 5 characters long", Toast.LENGTH_SHORT).show();
                         e3.setText("");
                         e4.setText("");
+                        }
 
                     }
-                    else {
-                        Toast.makeText(getContext(), "Registration error", Toast.LENGTH_SHORT).show();
-                        e1.setText("");
-                        e2.setText("");
-                        e3.setText("");
-                        e4.setText("");
-                    }
+
                 }
-                else {
-                    Toast.makeText(getContext(), "Password does not match", Toast.LENGTH_SHORT).show();
-                    e1.setText("");
-                    e2.setText("");
-                    e3.setText("");
-                    e4.setText("");
-                }
-            }
+
+
         });
 
         return view;

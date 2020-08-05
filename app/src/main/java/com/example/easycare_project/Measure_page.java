@@ -32,8 +32,8 @@ public class Measure_page extends MainActivity {
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Result_page.class);
-                startActivity(i);
+//                Intent i = new Intent(getApplicationContext(), Result_page.class);
+//                startActivity(i);
             }
         });
         cardView2.setOnClickListener(new View.OnClickListener() {

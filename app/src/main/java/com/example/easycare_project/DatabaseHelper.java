@@ -6,9 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static  final String DATABASE_NAME = "register.db";
@@ -30,7 +34,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table registeruser (ID INTEGER PRIMARY KEY AUTOINCREMENT, email VARCHAR, username TEXT, password TEXT)");
+        db.execSQL("PRAGMA foreign_keys=ON");
+        db.execSQL("Create table registeruser (ID INTEGER PRIMARY KEY AUTOINCREMENT,  username VARCHAR NOT NULL UNIQUE,  email VARCHAR UNIQUE, password TEXT UNIQUE, dob VARCHAR, gender CHAR, weight NUMBER, height NUMBER)");
+        db.execSQL("Create table measurement (ID INTEGER PRIMARY KEY AUTOINCREMENT, temprature VARCHAR, bp VARCHAR, heartrate VARCHAR, bmi VARCHAR, date TEXT, uname VARCHAR, FOREIGN KEY (uname)\n" +
+                "REFERENCES registeruser (username))");
+       // db.execSQL("Create table user_profile (ID INTEGER PRIMARY KEY,  username VARCHAR NOT NULL,  email VARCHAR, password TEXT)");
+
+
     }
 
     @Override
@@ -39,6 +49,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
 
     }
+    public boolean CheckIsInDBorNot(String uname) {
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE  username ='"+uname+"'" ;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.getCount() <= 0) {
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
     public long addUser(String email, String user, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -46,7 +67,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("username", user);
         contentValues.put("password", password);
 
-        long res = db.insert("registeruser", null, contentValues);
+        long res = db.insertWithOnConflict("registeruser", null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+        System.out.print(res);
+        Log.d("kkkkkkkkkk",""+ res);
+        db.close();
+        return res;
+    }
+    public long addMeasurement(String user, String value , String type){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date datee = new Date();
+        contentValues.put("user", user);
+        contentValues.put("date", dateFormat.format(datee));
+        if (type == "TEMP"){
+            contentValues.put("temp", value);
+        }
+        else if(type == "BP"){
+            contentValues.put("bp", value);
+        }
+        else if(type == "HEART"){
+            contentValues.put("heartrate", value);
+        }
+        else if(type == "BMI"){
+            contentValues.put("bmi", value);
+        }
+        long res = db.insert ("measurement", null, contentValues);
+        System.out.print(res);
+        Log.d("kkkkkkkkkk",""+ res);
         db.close();
         return res;
     }

@@ -4,6 +4,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <!--        android:background="@android:color/holo_green_light">-->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="318dp"
@@ -12,6 +16,8 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         app:srcCompat="@drawable/logo" />
+    </LinearLayout>
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

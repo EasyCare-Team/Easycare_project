@@ -4,6 +4,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--        android:background="@android:color/holo_green_light">-->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="318dp"
@@ -12,6 +16,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         app:srcCompat="@drawable/logo" />
+    </LinearLayout>
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,7 +56,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/prediction"
+                    android:text="@string/measure"
                     android:textAlignment="center"
                     android:layout_marginTop="5dp"
                     android:textSize="15sp"/>
@@ -125,40 +130,40 @@
                     android:textSize="15sp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="140dp"
-            android:layout_height="170dp"
-            android:padding="10dp"
-            android:layout_margin="12dp"
-            android:id="@+id/card_view4"
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="140dp"-->
+<!--            android:layout_height="170dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:layout_margin="12dp"-->
+<!--            android:id="@+id/card_view4"-->
 
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+<!--            app:cardCornerRadius="8dp"-->
+<!--            app:cardElevation="8dp">-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="10dp"
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:padding="10dp"-->
 
-                android:orientation="vertical">
+<!--                android:orientation="vertical">-->
 
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
+<!--                <ImageView-->
+<!--                    android:layout_width="90dp"-->
+<!--                    android:layout_height="80dp"-->
 
-                    android:src="@drawable/bmicalculator"
-                    android:contentDescription="BMI" />
+<!--                    android:src="@drawable/bmicalculator"-->
+<!--                    android:contentDescription="BMI" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/measure_bmi"
-                    android:textAlignment="center"
-                    android:layout_marginTop="5dp"
-                    android:textSize="15sp"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/measure_bmi"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:textSize="15sp"/>-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
 
     </GridLayout>
 

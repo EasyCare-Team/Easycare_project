@@ -46,23 +46,33 @@ public class Signin_Fragment extends Fragment {
             public void onClick(View v) {
                 String username = et_lusername.getText().toString();
                 String password = et_lpassword.getText().toString();
-
-                boolean checklogin = databaseHelper.checkUser(username, password);
-                if(checklogin){
-                    Toast.makeText(getContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                    SharedPreferences.Editor editor = getContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                    editor.putString("uname", username);
-                    //editor.putString("password", password);
-                    editor.apply();
-                    Intent i = new Intent(getContext(), com.example.easycare_project.MainActivity.class);
-                    //  i.putExtra(username, currentUsername);
-
-                    startActivity(i);
-                    et_lpassword.setText("");
+                et_lpassword.setText("");
                     et_lusername.setText("");
-                }else{
-                    Toast.makeText(getContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
+                boolean checklogin = databaseHelper.checkUser(username, password);
+                if(username.equals("") && password.equals("")) {
+                    Toast.makeText(getContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
+
                 }
+                else{
+                    if (checklogin) {
+                        Toast.makeText(getContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor editor = getContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                        editor.putString("uname", username);
+                        editor.putString("password", password);
+                        editor.putBoolean("isLoggedIn", true);
+                        editor.apply();
+                        Intent i = new Intent(getContext(), com.example.easycare_project.MainActivity.class);
+                        //  i.putExtra(username, currentUsername);
+
+                        startActivity(i);
+//                    et_lpassword.setText("");
+//                    et_lusername.setText("");
+                  }
+                    else {
+                        Toast.makeText(getContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
 
             }
         });

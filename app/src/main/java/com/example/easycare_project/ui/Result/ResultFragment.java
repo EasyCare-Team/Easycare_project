@@ -1,37 +1,43 @@
-package com.example.easycare_project;
+package com.example.easycare_project.ui.Result;
 
-import android.content.Context;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProviders;
 
-import android.os.ParcelUuid;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.os.Handler;
+import android.os.ParcelUuid;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import android.widget.EditText;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.easycare_project.DatabaseHelper;
+import com.example.easycare_project.R;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.easycare_project.Signin_Fragment.MY_PREFS_NAME;
 
-public class Result_page extends MainActivity {
+public class ResultFragment extends Fragment {
+
+    private ResultViewModel resultViewModel;
     BluetoothAdapter mBluetoothAdapter;
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice;
@@ -46,22 +52,27 @@ public class Result_page extends MainActivity {
     TextView myLabel;
     TextView Label;
     EditText text;
+    String uname;
+    String type;
+    DatabaseHelper databaseHelper;
+    public static ResultFragment newInstance() {
+        return new ResultFragment();
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-       // setContentView(R.layout.result);
-        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        // getLayoutInflater().inflate(R.layout.measure, contentFrameLayout);
-        LayoutInflater inflater = (LayoutInflater) this
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.result_fragment, contentFrameLayout);
-        Button save = (Button)findViewById(R.id.save);
-        Button measure = (Button)findViewById(R.id.start_measure);
-        text = (EditText)findViewById(R.id.entry);
-        myLabel = (TextView)findViewById(R.id.label);
-        Label = (TextView)findViewById(R.id.labell);
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        resultViewModel =
+                ViewModelProviders.of(this).get(ResultViewModel.class);
+        View root = inflater.inflate(R.layout.result_fragment, container, false);
+        SharedPreferences prefs = getContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+         uname = prefs.getString("uname", "No name defined");
+         type = getArguments().getString("type");
+        Button save =root.findViewById(R.id.save);
+        Button measure = root.findViewById(R.id.start_measure);
+        text = root.findViewById(R.id.entry);
+        myLabel = root.findViewById(R.id.label);
+        Label = root.findViewById(R.id.labell);
         measure.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
@@ -81,12 +92,13 @@ public class Result_page extends MainActivity {
             {
                 try
                 {
+                    //saveData();
                     sendData();
                 }
                 catch (IOException ex) { }
             }
         });
-
+        return root;
     }
     void findBT()
     {
@@ -118,7 +130,12 @@ public class Result_page extends MainActivity {
             }
     }
 
-
+    void saveData(String value) throws IOException {
+        long val = databaseHelper.addMeasurement(uname, value, type);
+        if (val > 0) {
+            Toast.makeText(getContext(), "Successfully saved", Toast.LENGTH_SHORT).show();
+        }
+    }
     void openBT() throws IOException
     {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //Standard SerialPortService ID
@@ -157,8 +174,6 @@ public class Result_page extends MainActivity {
                             for(int i=0;i<bytesAvailable;i++)
                             {
 
-
-
                                 final String data = new String(packetBytes, 0, packetBytes.length );
                                 readBufferPosition = 0;
 
@@ -168,6 +183,7 @@ public class Result_page extends MainActivity {
                                     {
                                         myLabel.setText("Your measurement is: ");
                                         Label.setText(data);
+                                       // saveData(data);
 
                                     }
                                 });
@@ -186,7 +202,6 @@ public class Result_page extends MainActivity {
         workerThread.start();
     }
 
-
     void sendData() throws IOException
     {
         String msg = text.getText().toString();
@@ -195,6 +210,8 @@ public class Result_page extends MainActivity {
         text.setText("");
         myLabel.setText("Data Sent");
     }
+
+
 
 
 
