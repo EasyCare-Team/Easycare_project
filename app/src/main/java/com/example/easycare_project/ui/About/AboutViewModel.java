@@ -8,12 +8,12 @@ public class AboutViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public AboutViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is send fragment");
-    }
+    //public AboutViewModel() {
+//        mText = new MutableLiveData<>();
+//        mText.setValue("This is send fragment");
+//    }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+//    public LiveData<String> getText() {
+//        return mText;
+//    }
 }

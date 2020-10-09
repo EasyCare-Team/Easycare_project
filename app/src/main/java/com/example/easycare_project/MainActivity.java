@@ -1,6 +1,7 @@
 package com.example.easycare_project;
 
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -49,6 +50,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected  DrawerLayout drawer;
     FragmentManager fragmentManager;
     Toolbar toolbar;
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        // TODO Auto-generated method stub
+        super.onConfigurationChanged(newConfig);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

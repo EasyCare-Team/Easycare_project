@@ -6,35 +6,32 @@
     android:layout_height="match_parent"
     android:weightSum="100"
     android:fillViewport="true">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:weightSum="100">
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="318dp"
         android:layout_height="155dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/logo1"
-        android:layout_marginStart="50dp" />
+        app:srcCompat="@drawable/logo1" />
     <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
         android:layout_marginTop="200dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/measure"
+        android:layout_marginLeft="200dp"
         android:padding="10dp"
         android:columnCount="2"
         android:background="@color/white"
-        android:weightSum="100"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="10dp">
+        android:weightSum="100">
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="140dp"
@@ -51,7 +48,7 @@
                 android:layout_margin="16dp"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:weightSum="100"
                 android:orientation="vertical">
 
@@ -65,7 +62,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/measure_heart_rate"
+                    android:text="@string/measure"
                     android:textAlignment="center"
                     android:layout_marginTop="5dp"
                     android:textSize="15sp"
@@ -94,13 +91,13 @@
                     android:layout_width="90dp"
                     android:layout_height="78dp"
 
-                    android:src="@drawable/temp"
-                    android:contentDescription="temp" />
+                    android:src="@drawable/bp"
+                    android:contentDescription="BP" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/measure_temperature"
+                    android:text="@string/measure"
                     android:textAlignment="center"
                     android:layout_marginTop="5dp"
                     android:textSize="15sp"
@@ -136,49 +133,47 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/measure_bp"
+                    android:text="@string/report"
                     android:layout_marginTop="5dp"
                     android:textSize="15sp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="140dp"
-            android:layout_height="170dp"
-            android:padding="10dp"
-            android:layout_margin="12dp"
-            android:id="@+id/card_view4"
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:layout_width="140dp"-->
+        <!--            android:layout_height="170dp"-->
+        <!--            android:padding="10dp"-->
+        <!--            android:layout_margin="12dp"-->
+        <!--            android:id="@+id/card_view4"-->
 
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+        <!--            app:cardCornerRadius="8dp"-->
+        <!--            app:cardElevation="8dp">-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="10dp"
-                android:weightSum="100"
-                android:orientation="vertical">
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_margin="16dp"-->
+        <!--                android:padding="10dp"-->
 
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
+        <!--                android:orientation="vertical">-->
 
-                    android:src="@drawable/bmi"
-                    android:contentDescription="BMI" />
+        <!--                <ImageView-->
+        <!--                    android:layout_width="90dp"-->
+        <!--                    android:layout_height="80dp"-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/measure_bmi"
-                    android:textAlignment="center"
-                    android:layout_marginTop="5dp"
-                    android:textSize="15sp"
-                    android:gravity="center_horizontal" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        <!--                    android:src="@drawable/bmicalculator"-->
+        <!--                    android:contentDescription="BMI" />-->
+
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:text="@string/measure_bmi"-->
+        <!--                    android:textAlignment="center"-->
+        <!--                    android:layout_marginTop="5dp"-->
+        <!--                    android:textSize="15sp"/>-->
+        <!--            </LinearLayout>-->
+        <!--        </androidx.cardview.widget.CardView>-->
 
     </GridLayout>
         </RelativeLayout>
     </ScrollView>
-
 </RelativeLayout>
