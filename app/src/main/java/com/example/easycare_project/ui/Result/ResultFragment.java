@@ -130,7 +130,7 @@ public class ResultFragment extends Fragment {
             }
     }
 
-    void saveData(String value) throws IOException {
+    void saveData(String value) {
         long val = databaseHelper.addMeasurement(uname, value, type);
         if (val > 0) {
             Toast.makeText(getContext(), "Successfully saved", Toast.LENGTH_SHORT).show();
@@ -150,7 +150,7 @@ public class ResultFragment extends Fragment {
         myLabel.setText("Bluetooth Opened");
     }
 
-    void beginListenForData()
+    void beginListenForData ()
     {
         final Handler handler = new Handler();
         final byte delimiter = 10; //This is the ASCII code for a newline character
@@ -179,11 +179,17 @@ public class ResultFragment extends Fragment {
 
                                 handler.post(new Runnable()
                                 {
-                                    public void run()
+                                    public void run ()
                                     {
                                         myLabel.setText("Your measurement is: ");
+
                                         Label.setText(data);
-                                       // saveData(data);
+//                                        try {
+//                                            saveData(data);
+//                                       }
+//                                        catch (Exception e){
+//
+//                                        }
 
                                     }
                                 });

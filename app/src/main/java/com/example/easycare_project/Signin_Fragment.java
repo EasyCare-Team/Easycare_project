@@ -46,8 +46,7 @@ public class Signin_Fragment extends Fragment {
             public void onClick(View v) {
                 String username = et_lusername.getText().toString();
                 String password = et_lpassword.getText().toString();
-                et_lpassword.setText("");
-                    et_lusername.setText("");
+
                 boolean checklogin = databaseHelper.checkUser(username, password);
                 if(username.equals("") && password.equals("")) {
                     Toast.makeText(getContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
@@ -65,11 +64,13 @@ public class Signin_Fragment extends Fragment {
                         //  i.putExtra(username, currentUsername);
 
                         startActivity(i);
-//                    et_lpassword.setText("");
-//                    et_lusername.setText("");
+                    et_lpassword.setText("");
+                    et_lusername.setText("");
                   }
                     else {
                         Toast.makeText(getContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
+                        et_lpassword.setText("");
+                        et_lusername.setText("");
                     }
                 }
 

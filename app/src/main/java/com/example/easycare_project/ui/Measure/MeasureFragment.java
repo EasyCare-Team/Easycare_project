@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.easycare_project.R;
 import com.example.easycare_project.Result_page;
+import com.example.easycare_project.ui.BMIFragment;
 import com.example.easycare_project.ui.Result.ResultFragment;
 
 import androidx.cardview.widget.CardView;
@@ -25,6 +26,10 @@ public class MeasureFragment extends Fragment {
     CardView cardView2;
     CardView cardView3;
     CardView cardView4;
+    public MeasureFragment()
+    {
+        setRetainInstance(true);
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         toolsViewModel =
@@ -47,7 +52,7 @@ public class MeasureFragment extends Fragment {
                 result.setArguments(args);
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, result);
+                fragmentTransaction.replace(R.id.nav_host_fragment, result).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
@@ -61,7 +66,7 @@ public class MeasureFragment extends Fragment {
                 result.setArguments(args);
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, result);
+                fragmentTransaction.replace(R.id.nav_host_fragment, result).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
@@ -76,7 +81,7 @@ public class MeasureFragment extends Fragment {
                 result.setArguments(args);
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, result);
+                fragmentTransaction.replace(R.id.nav_host_fragment, result).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
@@ -84,14 +89,14 @@ public class MeasureFragment extends Fragment {
         cardView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ResultFragment result  = new ResultFragment();
+                BMIFragment result  = new BMIFragment();
                 ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Measurement Result");
                 Bundle args = new Bundle();
                 args.putString("type", "BMI");
                 result.setArguments(args);
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, result);
+                fragmentTransaction.replace(R.id.nav_host_fragment, result).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

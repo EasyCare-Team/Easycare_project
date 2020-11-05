@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="100"
+
     android:fillViewport="true">
 
     <!--    <LinearLayout-->
@@ -28,44 +28,70 @@
 
     <!--    </LinearLayout>-->
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fadingEdge="none"
+        android:fillViewport="true">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="100">
+            android:layout_height="wrap_content"
+
+           >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+
+    >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:paddingTop="30dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/lulitt"
+                app:civ_border_color="@color/green"
+
+                app:civ_border_width="2dp" />
+</LinearLayout>
+
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="220dp"
-                android:background="@drawable/bg2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:weightSum="100">
+                android:layout_marginTop="280dp"
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:text="My Profile"
-                    android:textColor="@color/white"
-                    android:textSize="40dp" />
-
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="wrap_content"
+                >
+                <Button
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_person_foreground"
-                    tools:ignore="VectorDrawableCompat" />
+                    android:layout_gravity="center"
 
+                    android:stateListAnimator="@null"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:background="@drawable/round"
+                    android:text="View Profile"
+                    android:id="@+id/show"/>
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Listview"/>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="500dp"
-                android:layout_height="180dp"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="230dp"
+                android:layout_marginTop="370dp"
+                >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:weightSum="100">
 
                 <TextView
@@ -83,146 +109,171 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Email"
-                    android:textColor="@color/green"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
-                    android:layout_marginTop="10dp">
+                  >
 
 
                 </TextView>
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/emailp"
                     android:layout_width="match_parent"
-                    android:layout_height="34dp"
+                    android:layout_height="42dp"
                     android:ems="10"
                     android:inputType="textEmailAddress"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    app:backgroundTint="@color/green"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Date Of Birth"
-                    android:textColor="@color/green"
-                    android:textSize="20dp">
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:backgroundTint="@color/green"
+
+
+                    >
 
 
                 </TextView>
 
                 <EditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/dob"
                     android:layout_width="match_parent"
-                    android:layout_height="34dp"
+                    android:layout_height="42dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+
                     android:ems="10"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    app:backgroundTint="@color/green"
+                    />
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="vertical"
-                android:layout_marginTop="405dp"
-                android:weightSum="100">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Gender"
-                    android:textColor="@color/green"
-                    android:textSize="20dp">
+
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:backgroundTint="@color/green">
 
                 </TextView>
             </LinearLayout>
 
-            <LinearLayout
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="440dp"
+                android:layout_marginTop="220dp"
                 android:layout_marginLeft="40dp"
-                android:weightSum="100">
+                android:weightSum="100"
+                android:id="@+id/radioGroup"
+                >
 
                 <RadioButton
-                    android:id="@+id/checkBox"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:text="Female"
-                    android:textColor="@color/green"
-                    android:textSize="20dp"/>
-
-                <RadioButton
-                    android:id="@+id/checkBox2"
+                    android:id="@+id/radiomale"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:text="Male"
-                    android:textColor="@color/green"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
-                    android:layout_marginLeft="20dp"/>
 
-            </LinearLayout>
+                 />
+
+                <RadioButton
+                    android:id="@+id/radiofemale"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:text="female"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"
+
+                    />
+
+
+            </RadioGroup>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:orientation="vertical"
-                android:layout_marginTop="480dp"
+                android:layout_marginTop="270dp"
                 android:weightSum="100">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Weight (kg)"
-                    android:textColor="@color/green"
-                    android:textSize="20dp">
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+
+
+                    app:backgroundTint="@color/green">
 
 
                 </TextView>
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/weight"
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="42dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+
                     android:ems="10"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    app:backgroundTint="@color/green"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Height (cm)"
-                    android:textColor="@color/green"
+                    android:textColor="@color/black"
 
-                    android:textSize="20dp">
+                    android:textSize="20dp"
+                    >
 
 
                 </TextView>
 
 
                 <EditText
-                    android:id="@+id/editText1"
+                    android:id="@+id/height"
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="42dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+
                     android:ems="10"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    app:backgroundTint="@color/green"/>
+
 
                 <Button
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
+
                     android:stateListAnimator="@null"
                     android:text="Save"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="20dp"
-                    android:background="@drawable/round">
-                </Button>
+                    android:background="@drawable/round"
+                    android:id="@+id/save"/>
 
             </LinearLayout>
+            </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

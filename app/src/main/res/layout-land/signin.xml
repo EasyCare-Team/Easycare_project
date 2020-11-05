@@ -47,18 +47,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Username"
-                android:textColor="@color/green"
+                android:textColor="@color/black"
+                android:textCursorDrawable= "@null"
                 android:textSize="20dp"
-                android:inputType="textPersonName"/>
+                android:inputType="textPersonName"
+                app:backgroundTint="@color/green" />
+            />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:textColor="@color/green"
+                android:textColor="@color/black"
+                android:textCursorDrawable= "@null"
                 android:textSize="20dp"
-                android:id="@+id/password"></EditText>
+                android:id="@+id/password"
+                app:backgroundTint="@color/green" />
+
+            />
 
             <Button
                 android:layout_width="180dp"

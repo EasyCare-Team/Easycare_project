@@ -25,7 +25,10 @@
     <string name="Heartrate">Heart rate</string>
     <string name="Logout">Logout </string>
     <string name="easycare">EasyCare </string>
+    <string name="drawer_open">drawer_open </string>
 
+    <string name="drawer_close">drawer_close </string>
+    <string name="measure_vitals">Measure Vitals </string>
 <!--    <string name="menu_tools">Tools</string>-->
 <!--    <string name="menu_share">Share</string>-->
 <!--    <string name="menu_send">Send</string>-->

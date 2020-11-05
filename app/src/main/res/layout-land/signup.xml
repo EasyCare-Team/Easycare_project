@@ -23,10 +23,12 @@
                 android:layout_height="wrap_content"
                 android:hint="Email"
                 android:inputType="textCapWords"
-                android:textColor="@color/green"
+                android:textColor="@color/black"
+                android:textCursorDrawable= "@null"
                 android:textSize="20dp"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/email">
+                android:id="@+id/email"
+                app:backgroundTint="@color/green">
 
             </EditText>
 
@@ -35,10 +37,12 @@
                 android:layout_height="wrap_content"
                 android:hint="Username"
                 android:inputType="textPersonName"
-                android:textColor="@color/green"
+                android:textColor="@color/black"
+                android:textCursorDrawable= "@null"
                 android:textSize="20dp"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/username">
+                android:id="@+id/username"
+                app:backgroundTint="@color/green">
 
             </EditText>
 
@@ -47,10 +51,12 @@
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:textColor="@color/green"
+                android:textColor="@color/black"
+                android:textCursorDrawable= "@null"
                 android:textSize="20dp"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/pass">
+                android:id="@+id/pass"
+                app:backgroundTint="@color/green">
 
             </EditText>
 
@@ -59,10 +65,12 @@
                 android:layout_height="wrap_content"
                 android:hint="Confirm Password"
                 android:inputType="textPassword"
-                android:textColor="@color/green"
+                android:textColor="@color/black"
+                android:textCursorDrawable= "@null"
                 android:textSize="20dp"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/cpassword">
+                android:id="@+id/cpassword"
+                app:backgroundTint="@color/green">
 
             </EditText>
 
