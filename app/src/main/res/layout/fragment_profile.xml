@@ -73,6 +73,7 @@
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:text="Basic Information"
+                    android:fontFamily="@font/gothicb"
                     android:textColor="@color/green"
                     android:textSize="30dp">
 
@@ -83,7 +84,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Email"
-                    android:textColor="@color/green"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/gothicb"
                     android:textSize="20dp"
                     android:layout_marginTop="10dp">
 
@@ -93,7 +95,7 @@
                 <EditText
                     android:id="@+id/editText2"
                     android:layout_width="match_parent"
-                    android:layout_height="34dp"
+                    android:layout_height="40dp"
                     android:ems="10"
                     android:inputType="textEmailAddress"
                     android:layout_marginLeft="10dp"/>
@@ -103,7 +105,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Date Of Birth"
-                    android:textColor="@color/green"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/gothicb"
                     android:textSize="20dp">
 
 
@@ -112,7 +115,7 @@
                 <EditText
                     android:id="@+id/editText3"
                     android:layout_width="match_parent"
-                    android:layout_height="34dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:ems="10"
                     android:inputType="date" />
@@ -123,14 +126,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:orientation="vertical"
-                android:layout_marginTop="405dp"
+                android:layout_marginTop="415dp"
                 android:weightSum="100">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Gender"
-                    android:textColor="@color/green"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/gothicb"
                     android:textSize="20dp">
 
                 </TextView>
@@ -149,7 +153,8 @@
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:text="Female"
-                    android:textColor="@color/green"
+                    android:fontFamily="@font/gothicb"
+                    android:textColor="@color/black"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -157,7 +162,8 @@
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:text="Male"
-                    android:textColor="@color/green"
+                    android:fontFamily="@font/gothicb"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
                     android:layout_marginLeft="20dp"/>
 
@@ -165,7 +171,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
+                android:layout_height="250dp"
                 android:orientation="vertical"
                 android:layout_marginTop="480dp"
                 android:weightSum="100">
@@ -174,16 +180,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Weight (kg)"
-                    android:textColor="@color/green"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/gothicb"
                     android:textSize="20dp">
-
 
                 </TextView>
 
                 <EditText
                     android:id="@+id/editText"
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:ems="10"
                     android:inputType="numberDecimal" />
@@ -193,8 +199,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Height (cm)"
-                    android:textColor="@color/green"
-
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/gothicb"
                     android:textSize="20dp">
 
 
@@ -204,7 +210,7 @@
                 <EditText
                     android:id="@+id/editText1"
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:ems="10"
                     android:inputType="numberDecimal" />
@@ -216,6 +222,7 @@
                     android:layout_marginTop="30dp"
                     android:stateListAnimator="@null"
                     android:text="Save"
+                    android:fontFamily="@font/gothicb"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="20dp"

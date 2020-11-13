@@ -13,12 +13,11 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="318dp"
-                android:layout_height="155dp"
-                android:layout_marginLeft="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/logo1" />
+                android:layout_marginTop="80dp"
+                app:srcCompat="@drawable/eslogo" />
 
     <LinearLayout
         android:id="@+id/button_container"
@@ -28,19 +27,15 @@
         android:orientation="vertical">
 
         <Button
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_gravity="center"
             android:layout_marginTop="90dp"
             android:stateListAnimator="@null"
-            android:text="Start Measurement"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:background="@drawable/round"
+            android:background="@drawable/strtmeasure"
             android:id="@+id/start_measure"/>
 
-        <TextView
+      <!--  <TextView
             android:id="@+id/label"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -48,7 +43,7 @@
             android:textSize="20dp"
             android:textAlignment="center"
             android:layout_marginTop="30dp"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal" />-->
 
         <ProgressBar
             android:id="@+id/loader_prueba"
@@ -62,9 +57,11 @@
             android:id="@+id/labell"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textSize="50dp"
+            android:textSize="25dp"
             android:layout_marginTop="50dp"
             android:textAlignment="center"
+            android:fontFamily="@font/gothic"
+            android:textColor="@color/black"
             android:text="Type here:"
             android:gravity="center_horizontal" />
 
@@ -73,7 +70,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:background="@android:drawable/editbox_background" />
 
         <Button
@@ -81,9 +78,8 @@
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="30dp"
             android:stateListAnimator="@null"
-
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20dp"

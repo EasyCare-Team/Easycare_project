@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -11,18 +12,29 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="30dp"
+                app:srcCompat="@drawable/repologo" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="180dp">
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="-30dp">
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="50dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/round"
             android:text="Weekly"
+            android:fontFamily="@font/gothicb"
             android:id="@+id/weekly"
             android:textColor="@color/white"
             android:textSize="20dp">
@@ -30,12 +42,13 @@
         </Button>
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/round"
             android:text="Monthly"
+            android:fontFamily="@font/gothicb"
             android:id="@+id/monthly"
             android:textColor="@color/white"
             android:textSize="20dp">

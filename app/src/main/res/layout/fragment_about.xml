@@ -16,11 +16,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="EasyCare"
         android:textSize="55dp"
+        android:fontFamily="@font/bauhs93"
         android:textColor="@color/green"
         android:textAlignment="center"
         android:gravity="center_horizontal"
@@ -35,7 +36,7 @@
         android:layout_marginRight="10dp"
         android:text="Version 1.0.0"
         android:textSize="20dp"
-        android:textColor="@color/green"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:gravity="center_horizontal">
 
@@ -43,12 +44,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="310dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="EasyCare is a simple device that measures the heart pulse rate, blood pressure, and temperature of a person. "
         android:textSize="17dp"
-        android:textColor="@color/green"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:gravity="center_horizontal">
 
@@ -56,12 +57,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="390dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="Developed by EasyCare Team "
         android:textSize="17dp"
-        android:textColor="@color/green"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:gravity="center_horizontal">
 

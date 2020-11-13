@@ -6,12 +6,11 @@
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="318dp"
-        android:layout_height="155dp"
-        android:layout_marginLeft="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/logo1" />
+        android:layout_marginTop="80dp"
+        app:srcCompat="@drawable/eslogo" />
 
     <LinearLayout
         android:layout_width="384dp"
@@ -74,7 +73,7 @@
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="253dp"
+        android:layout_marginTop="265dp"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
 
