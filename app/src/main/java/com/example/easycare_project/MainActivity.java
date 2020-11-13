@@ -2,6 +2,7 @@ package com.example.easycare_project;
 
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -45,6 +46,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static com.example.easycare_project.Signin_Fragment.MY_PREFS_NAME;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -53,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected  DrawerLayout drawer;
     private ActionBarDrawerToggle drawerToggle;
     FragmentManager fragmentManager;
+    Bitmap image;
+    DatabaseHelper db;
+
     //ActionBarDrawerToggle mActionBarDrawerToggle;
 
     Toolbar toolbar;
@@ -61,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
+        db = new DatabaseHelper(getApplicationContext());
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -131,7 +138,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         //   NavigationUI.setupWithNavController(navigationView, navController);
-        final ImageView imageViewUser =  (ImageView)navigationView.getHeaderView(0).findViewById(R.id.imageView);
+        final CircleImageView imageViewUser =  (CircleImageView)navigationView.getHeaderView(0).findViewById(R.id.imageView);
+        //imageViewUser.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+
+        image= db.getImage(uname);
+        if(image != null)
+            imageViewUser.setImageBitmap(image);
 
         TextView txtProfileName = (TextView) navigationView.getHeaderView(0).findViewById(R.id.textView);
         txtProfileName.setText(uname);

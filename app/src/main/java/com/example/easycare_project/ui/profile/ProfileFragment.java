@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -29,11 +30,15 @@ import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.easycare_project.DatabaseHelper;
 import com.example.easycare_project.R;
+import com.example.easycare_project.Result_page;
+import com.example.easycare_project.ui.Report.ReportFragment;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -147,7 +152,12 @@ public class ProfileFragment extends Fragment {
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showlist();
+                viewProfileFragment report  = new viewProfileFragment();
+                ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("View Profile");
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, report).addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
@@ -191,7 +201,7 @@ public class ProfileFragment extends Fragment {
     public void showlist()
     {
 
-               //3 list.clear();
+               // list.clear();
                 Cursor cursor = db.fetchProfile(uname);
                 if(cursor.getCount() == 0)
                 {
@@ -205,6 +215,8 @@ public class ProfileFragment extends Fragment {
                 }
                 adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,list);
                 lv.setAdapter(adapter);
+        Utility.setListViewHeightBasedOnChildren(lv);
+
 
     }
 }
