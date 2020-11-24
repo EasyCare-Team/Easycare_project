@@ -18,7 +18,7 @@
     <string name="measure_temperature">Measure Temperature</string>
     <string name="measure">Measure vitals</string>
     <string name="report">Report</string>
-    <string name="prediction">Prediction</string>
+    <string name="advice">Advice</string>
     <string name="BP">BP</string>
     <string name="temp">temprature</string>
     <string name="BMI">BMI</string>

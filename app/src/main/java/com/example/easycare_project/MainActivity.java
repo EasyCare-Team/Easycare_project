@@ -141,9 +141,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final CircleImageView imageViewUser =  (CircleImageView)navigationView.getHeaderView(0).findViewById(R.id.imageView);
         //imageViewUser.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
+
         image= db.getImage(uname);
         if(image != null)
             imageViewUser.setImageBitmap(image);
+
 
         TextView txtProfileName = (TextView) navigationView.getHeaderView(0).findViewById(R.id.textView);
         txtProfileName.setText(uname);

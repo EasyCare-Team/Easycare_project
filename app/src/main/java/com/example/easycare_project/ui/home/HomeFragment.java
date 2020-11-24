@@ -14,7 +14,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.easycare_project.AdviceListItem;
 import com.example.easycare_project.R;
+import com.example.easycare_project.ui.AdviceFragment;
 import com.example.easycare_project.ui.Measure.MeasureFragment;
 import com.example.easycare_project.ui.Prediction.PredictionFragment;
 import com.example.easycare_project.ui.Report.ReportFragment;
@@ -75,11 +77,11 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 //                Intent i = new Intent(getContext(), Measure_page.class);
 //                startActivity(i);
-                PredictionFragment prediction  = new PredictionFragment();
-                ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Prediction");
+                AdviceFragment advice  = new AdviceFragment();
+                ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Advice");
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, prediction).addToBackStack(null);
+                fragmentTransaction.replace(R.id.nav_host_fragment, advice).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

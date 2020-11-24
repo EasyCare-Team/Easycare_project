@@ -152,11 +152,11 @@ public class ProfileFragment extends Fragment {
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewProfileFragment report  = new viewProfileFragment();
+                viewProfileFragment view  = new viewProfileFragment();
                 ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("View Profile");
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, report).addToBackStack(null);
+                fragmentTransaction.replace(R.id.nav_host_fragment, view).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

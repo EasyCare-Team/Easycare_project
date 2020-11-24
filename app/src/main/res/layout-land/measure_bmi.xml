@@ -14,28 +14,27 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="500dp"
-                android:layout_height="255dp"
-                android:layout_marginLeft="200dp"
+                android:layout_width="340dp"
+                android:layout_height="200dp"
+
                 android:layout_gravity="center"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="200dp"
 
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
                 app:srcCompat="@drawable/logo1" />
 
+
+
             <LinearLayout
-                android:layout_width="500dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="280dp"
-                android:weightSum="100">
+                android:layout_marginTop="240dp"
+              >
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Enter weight"
+                    android:text="Enter weight (KG)"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     app:backgroundTint="@color/green"
@@ -45,14 +44,13 @@
                 </TextView>
 
                 <EditText
-                    android:id="@+id/editText1"
+                    android:id="@+id/weight_et"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
 
-                    android:ems="10"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     app:backgroundTint="@color/green"
                     />
 
@@ -60,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Enter Height"
+                    android:text="Enter Height (M)"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     app:backgroundTint="@color/green"
@@ -70,17 +68,72 @@
                 </TextView>
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/height_et"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:inputType="numberDecimal"
 
-                    android:ems="10"
-                    android:inputType="date"
                     app:backgroundTint="@color/green"
                     />
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/show_bmi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="bmi"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textSize="30dp"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+
+                android:layout_marginTop="480dp">
+
+                <Button
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:stateListAnimator="@null"
+                    android:text="Measure"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+
+                    android:background="@drawable/round"
+                    android:id="@+id/measure_bmi"
+                    android:layout_gravity="center"
+                    android:layout_centerHorizontal="true"/>
+                <Button
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:stateListAnimator="@null"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/round"
+                    android:id="@+id/save_bmi"/>
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>

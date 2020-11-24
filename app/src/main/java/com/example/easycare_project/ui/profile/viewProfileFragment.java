@@ -139,8 +139,8 @@ public class viewProfileFragment extends Fragment {
         while(cursor.moveToNext())
         {
             
-            list.add("User name         " + cursor.getString(1));
-            list.add("Email                 " + cursor.getString(2));
+            list.add("User name: \t \t \t" + cursor.getString(1));
+            list.add("Email: \t \t \t" + cursor.getString(2));
            // list.add(cursor.getString(3));
         }
         adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,list);

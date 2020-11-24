@@ -1,5 +1,6 @@
 package com.example.easycare_project.ui.Result;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.bluetooth.BluetoothAdapter;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import com.example.easycare_project.DatabaseHelper;
 import com.example.easycare_project.R;
+import com.example.easycare_project.ui.Report.ReportFragment;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -65,6 +67,8 @@ public class ResultFragment extends Fragment {
         resultViewModel =
                 ViewModelProviders.of(this).get(ResultViewModel.class);
         View root = inflater.inflate(R.layout.result_fragment, container, false);
+        databaseHelper = new DatabaseHelper(getContext());
+
         SharedPreferences prefs = getContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
          uname = prefs.getString("uname", "No name defined");
          type = getArguments().getString("type");
@@ -73,6 +77,16 @@ public class ResultFragment extends Fragment {
         text = root.findViewById(R.id.entry);
         myLabel = root.findViewById(R.id.label);
         Label = root.findViewById(R.id.labell);
+       // String type =  getArguments().getString("type");
+        ReportFragment report = new ReportFragment();
+        Bundle args = new Bundle();
+        args.putString("type", type);
+        report.setArguments(args);
+//        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.nav_host_fragment, report);
+//        transaction.addToBackStack(null);
+
+
         measure.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)

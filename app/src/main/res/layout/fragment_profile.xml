@@ -51,7 +51,7 @@
                 android:layout_gravity="center"
                 android:paddingTop="30dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/lulitt"
+                android:src="@drawable/ic_person_black_24dp"
                 app:civ_border_color="@color/green"
 
                 app:civ_border_width="2dp" />
@@ -238,7 +238,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Height (cm)"
+                    android:text="Height (M)"
                     android:textColor="@color/black"
 
                     android:textSize="20dp"
