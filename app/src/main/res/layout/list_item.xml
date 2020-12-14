@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:textColor="@color/green"
         android:text="Heading"/>
         <TextView
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:text="Description"/>
 </LinearLayout>
     </androidx.cardview.widget.CardView>

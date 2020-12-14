@@ -64,7 +64,7 @@ public class ReportFragment extends Fragment {
             Toast.makeText(getContext(), "No Data", Toast.LENGTH_SHORT).show();
         }
         //  profilearr = new String[cursor.getCount()];
-
+        cursor.moveToFirst();
         while(cursor.moveToNext())
         {
 
@@ -72,6 +72,7 @@ public class ReportFragment extends Fragment {
             list.add(cursor.getString(1)+ " \t \t \t \t\t \t " + cursor.getString(2) + " \t \t\t \t\t \t" + cursor.getString(3));
              //list.add("hello" + cursor.getString(1));
         }
+        cursor.close();
         adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,list);
         lv.setAdapter(adapter);
         Utility.setListViewHeightBasedOnChildren(lv);

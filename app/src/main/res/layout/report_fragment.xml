@@ -73,36 +73,36 @@
 
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="560dp"
-        android:layout_centerHorizontal="true"
-        android:gravity="center">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="560dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:gravity="center">-->
 
-<!--        <Button-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:background="@drawable/round"-->
-<!--            android:text="Weekly"-->
-<!--            android:id="@+id/weekly"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="20dp">-->
+<!--&lt;!&ndash;        <Button&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="150dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="70dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="@drawable/round"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:text="Weekly"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/weekly"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="20dp">&ndash;&gt;-->
 
-<!--        </Button>-->
+<!--&lt;!&ndash;        </Button>&ndash;&gt;-->
 
-<!--        <Button-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:background="@drawable/round"-->
-<!--            android:text="Monthly"-->
-<!--            android:id="@+id/monthly"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="20dp">-->
+<!--&lt;!&ndash;        <Button&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="150dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="70dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginLeft="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="@drawable/round"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:text="Monthly"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/monthly"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="20dp">&ndash;&gt;-->
 
-<!--        </Button>-->
-    </LinearLayout>
+<!--&lt;!&ndash;        </Button>&ndash;&gt;-->
+<!--    </LinearLayout>-->
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

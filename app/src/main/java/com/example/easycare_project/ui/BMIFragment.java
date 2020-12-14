@@ -50,24 +50,45 @@ public class BMIFragment extends Fragment {
         btn_save = view.findViewById(R.id.save_bmi);
         btn_measure = view.findViewById(R.id.measure_bmi);
         et_show = view.findViewById(R.id.show_bmi);
-
+        Double f1 = new Double(1.0 / 0.0);
+        Double f2 = new Double(0.0 / 0.0);
+        final boolean res = f1.isInfinite();
+        final boolean res2 = f2.isInfinite();
+        height = et_height.getText().toString().trim();
+        weight = et_weight.getText().toString().trim();
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         uname = prefs.getString("uname", "No name defined");
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.addMeasurement(uname, bmi_str, "BMI");
-                db.fetchMeasurement(uname);
-                et_height.setText(" ");
-                et_weight.setText(" ");
-                et_show.setText(" ");
-                long val =  db.addMeasurement(uname, bmi_str, "BMI");
-                if (val >0){
-                    Toast.makeText(getContext(), "Measurement successfully saved", Toast.LENGTH_SHORT).show();
+                if (height.equals("") ||  weight.equals("")) {
+                    Toast.makeText(getContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
+                }
 
+                if (height.equals("0") || weight.equals("0")) {
+                    Toast.makeText(getContext(), "Value can not be zero", Toast.LENGTH_SHORT).show();
+                    et_height.setText(" ");
+                    et_weight.setText(" ");
+                }
+                else {
+                    //   db.addMeasurement(uname, bmi_str, "BMI");
+                    // db.fetchMeasurement(uname);
+                    et_height.setText(" ");
+                    et_weight.setText(" ");
+                    et_show.setText(" ");
+
+                    if (height != null && height.length() > 0 && weight != null && weight.length() > 0) {
+                        try {
+                            long val = db.addMeasurement(uname, bmi_str, "BMI");
+                            if (val > 0) {
+                                Toast.makeText(getContext(), "Measurement successfully saved", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+
+                        }
+                    }
                 }
             }
-
         });
 
         btn_measure.setOnClickListener(new View.OnClickListener() {
@@ -75,14 +96,41 @@ public class BMIFragment extends Fragment {
             public void onClick(View v) {
                 height = et_height.getText().toString().trim();
                 weight = et_weight.getText().toString().trim();
-                bmi = Double.parseDouble(weight) / (Double.parseDouble(height) *  Double.parseDouble(height));
-                bmi_str= String.format("%.4f", bmi);
-                et_show.setText("Your BMI is: "+ bmi_str);
-                et_height.setText(" ");
-                et_weight.setText(" ");
+                if (height.equals("")  || weight.equals("")) {
+                    Toast.makeText(getContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
+                }
+                if (height.equals("0")  || weight.equals("0")) {
+                    Toast.makeText(getContext(), "Value can not be zero", Toast.LENGTH_SHORT).show();
+                    et_height.setText(" ");
+                    et_weight.setText(" ");
+                }
+                else {
 
+                    if (height != null && height.length() > 0  && weight != null && weight.length() > 0) {
+                        try {
+                            bmi = Double.parseDouble(weight) / (Double.parseDouble(height) * Double.parseDouble(height));
+
+                        }
+                        catch(Exception e) {
+
+                        }
+
+                    }
+
+                        bmi_str = String.format("%.4f", bmi);
+                        et_show.setText("Your BMI is: " + bmi_str);
+                        et_height.setText(" ");
+                        et_weight.setText(" ");
+
+
+                      //  Toast.makeText(getContext(), "value can not be zero", Toast.LENGTH_SHORT).show();
+
+
+
+
+
+                }
             }
-
         });
 
         return view;

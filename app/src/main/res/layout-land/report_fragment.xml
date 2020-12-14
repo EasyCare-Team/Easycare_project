@@ -74,10 +74,10 @@
 
             </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="560dp">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="560dp">-->
 
 <!--        <Button-->
 <!--            android:layout_width="150dp"-->
@@ -103,7 +103,7 @@
 <!--            android:textSize="20dp">-->
 
 <!--        </Button>-->
-    </LinearLayout>
+<!--    </LinearLayout>-->
         </RelativeLayout>
     </ScrollView>
 

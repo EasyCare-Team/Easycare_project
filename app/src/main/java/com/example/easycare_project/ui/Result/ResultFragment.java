@@ -57,6 +57,7 @@ public class ResultFragment extends Fragment {
     String uname;
     String type;
     DatabaseHelper databaseHelper;
+    String data = null;
     public static ResultFragment newInstance() {
         return new ResultFragment();
     }
@@ -106,7 +107,7 @@ public class ResultFragment extends Fragment {
             {
                 try
                 {
-                    //saveData();
+                    saveData(data);
                     sendData();
                 }
                 catch (IOException ex) { }
@@ -154,11 +155,12 @@ public class ResultFragment extends Fragment {
     {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //Standard SerialPortService ID
         // UUID uuid = UUID.fromString("94f39d29-7d6d-437d-973b-fba39e49d4ee");
-        mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
-        mmSocket.connect();
-        mmOutputStream = mmSocket.getOutputStream();
-        mmInputStream = mmSocket.getInputStream();
-
+        if (mmDevice != null) {
+            mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
+            mmSocket.connect();
+            mmOutputStream = mmSocket.getOutputStream();
+            mmInputStream = mmSocket.getInputStream();
+        }
         beginListenForData();
 
         myLabel.setText("Bluetooth Opened");
@@ -180,6 +182,7 @@ public class ResultFragment extends Fragment {
                 {
                     try
                     {
+
                         int bytesAvailable = mmInputStream.available();
                         if(bytesAvailable > 0)
                         {
@@ -188,7 +191,7 @@ public class ResultFragment extends Fragment {
                             for(int i=0;i<bytesAvailable;i++)
                             {
 
-                                final String data = new String(packetBytes, 0, packetBytes.length );
+                                 data = new String(packetBytes, 0, packetBytes.length );
                                 readBufferPosition = 0;
 
                                 handler.post(new Runnable()

@@ -1,18 +1,37 @@
 [
 {
 "header": "Heart Rate",
-"desc": "A normal resting heart rate for adults ranges from 60 to 100 beats per minute. Generally, a lower heart rate at rest implies more efficient heart function and better cardiovascular fitness"
+"desc": "A normal resting heart rate for adults ranges from 60 to 100 beats per minute. Generally, a lower heart rate at rest implies more efficient heart function and better cardiovascular fitness",
+"Link": "https://www.belmarrahealth.com/resting-heart-rate-chart-factors-influence-heart-rate-elderly/"
 },
 {
 "header": "Temprature",
-"desc": "A normal resting heart rate for adults ranges from 60 to 100 beats per minute. Generally, a lower heart rate at rest implies more efficient heart function and better cardiovascular fitness"
+"desc": "A fever is when your body temperature is higher than normal. The average body temperature is around 98.6°F (37°C).",
+"Link": "https://www.healthline.com/health/fever-symptoms"
 },
 {
-"header": "BP",
-"desc": "A normal resting heart rate for adults ranges from 60 to 100 beats per minute. Generally, a lower heart rate at rest implies more efficient heart function and better cardiovascular fitness"
+"header": "Hypertension",
+"desc": "Normal:\t\t systolic: less than 120 mm Hg, diastolic: less than 80 mm Hg\n
+At Risk (prehypertension):\t\t	systolic: 120–139 mm Hg, diastolic: 80–89 mm Hg\n
+High Blood Pressure (hypertension):\t\t	systolic: 140 mm Hg or higher, diastolic: 90 mm Hg or higher\n",
+"Link": "https://www.disabled-world.com/calculators-charts/bloodpressurechart.php"
 },
 {
 "header": "BMI",
-"desc": "A normal resting heart rate for adults ranges from 60 to 100 beats per minute. Generally, a lower heart rate at rest implies more efficient heart function and better cardiovascular fitness"
+"desc": "
+BMI \t\t\t\t\t\t\t Weight status\n
+Below 18.5:\t\t\t\t Underweight \n
+18.5–24.9:\t \t\t\t	Healthy\n
+25.0–29.9:\t \t\t\t	Overweight\n
+30.0 and above:\t\t\t\t	Obese\n",
+"Link": "https://www.healthifyme.com/blog/height-weight-chart-ideal-weight-for-men-and-women/"
 }
 ]
+
+Body mass index (BMI) is a value derived from the mass (weight) and height of a person. The BMI is defined as the body mass divided by the square of the body height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in meters.
+
+Category\t\t\t\t	Systolic \t\t\t\t	Diastolic\n
+normal:	\t\t\tless than 120 \t\t	 less than 80 \n
+elevated:\t\t\t\t 120-129 \t\t           less than 80\n
+stage 1 (hypertension):\t\t\t\t\t\t	130-139	\t\t 80-89\n
+stage 2 (hypertension):\t\t\t\t\t\t	140 or higher \t\t 90 or higher\n
