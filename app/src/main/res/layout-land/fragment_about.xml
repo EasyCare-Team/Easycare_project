@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:weightSum="100"
+    android:fillViewport="true">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="500dp"
+                android:layout_height="255dp"
+                android:layout_marginLeft="200dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="200dp"
+
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/logo1" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="EasyCare"
+        android:textSize="55dp"
+        android:textColor="@color/green"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:id="@+id/text_about">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Version 1.0.0"
+        android:textSize="20dp"
+        android:textColor="@color/green"
+        android:textAlignment="center"
+        android:gravity="center_horizontal">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="EasyCare is a simple device that measures the heart pulse rate, blood pressure, and temperature of a person. "
+        android:textSize="17dp"
+        android:textColor="@color/green"
+        android:textAlignment="center"
+        android:gravity="center_horizontal">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Developed by EasyCare Team "
+        android:textSize="17dp"
+        android:textColor="@color/green"
+        android:textAlignment="center"
+        android:gravity="center_horizontal">
+
+    </TextView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

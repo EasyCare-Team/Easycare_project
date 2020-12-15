@@ -4,38 +4,105 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="180dp">
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/round"
-            android:text="Weekly"
-            android:id="@+id/weekly"
-            android:textColor="@color/white"
-            android:textSize="20dp">
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="340dp"
+                android:layout_height="200dp"
 
-        </Button>
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                app:srcCompat="@drawable/logo1"
+                />
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/round"
-            android:text="Monthly"
-            android:id="@+id/monthly"
-            android:textColor="@color/white"
-            android:textSize="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="200dp">
 
-        </Button>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center_horizontal"
+                    android:text="Date"
+                    android:layout_weight="1"
 
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center_horizontal"
+                    android:text="Type"
+                    android:layout_weight="1"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Value"
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+            </LinearLayout>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="290dp">
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Listview"/>
+
+        </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="560dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:gravity="center">-->
+
+<!--&lt;!&ndash;        <Button&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="150dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="70dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="@drawable/round"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:text="Weekly"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/weekly"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="20dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </Button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <Button&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="150dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="70dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginLeft="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="@drawable/round"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:text="Monthly"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/monthly"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="20dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </Button>&ndash;&gt;-->
+<!--    </LinearLayout>-->
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

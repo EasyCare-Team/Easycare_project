@@ -31,6 +31,8 @@ import java.util.UUID;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.easycare_project.ui.Report.ReportFragment;
+
 public class Result_page extends MainActivity {
     BluetoothAdapter mBluetoothAdapter;
     BluetoothSocket mmSocket;
@@ -46,6 +48,7 @@ public class Result_page extends MainActivity {
     TextView myLabel;
     TextView Label;
     EditText text;
+     String data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -61,6 +64,7 @@ public class Result_page extends MainActivity {
         text = (EditText)findViewById(R.id.entry);
         myLabel = (TextView)findViewById(R.id.label);
         Label = (TextView)findViewById(R.id.labell);
+        db = new DatabaseHelper(getApplicationContext());
 
         measure.setOnClickListener(new View.OnClickListener()
         {
@@ -86,6 +90,10 @@ public class Result_page extends MainActivity {
                 catch (IOException ex) { }
             }
         });
+
+    }
+    void save_measure(){
+
 
     }
     void findBT()
@@ -159,7 +167,7 @@ public class Result_page extends MainActivity {
 
 
 
-                                final String data = new String(packetBytes, 0, packetBytes.length );
+                               data = new String(packetBytes, 0, packetBytes.length );
                                 readBufferPosition = 0;
 
                                 handler.post(new Runnable()

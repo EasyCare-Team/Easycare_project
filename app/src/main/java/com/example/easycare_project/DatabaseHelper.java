@@ -3,10 +3,14 @@ package com.example.easycare_project;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -14,15 +18,20 @@ import androidx.annotation.RequiresApi;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static  final String DATABASE_NAME = "register.db";
     public static  final String TABLE_NAME = "registeruser";
+    public static  final String TABLE_NAME2 = "measurement";
+
     public static  final String COL_1 = "ID";
     public static  final String COL_2 = "email";
     public static  final String COL_3 = "username";
     public static  final String COL_4 = "password";
     //public static  final String col4 = "register.db";
 
+    public static  final String  COLUMN_ITEM ="image";
 
 
 
@@ -35,8 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("PRAGMA foreign_keys=ON");
-        db.execSQL("Create table registeruser (ID INTEGER PRIMARY KEY AUTOINCREMENT,  username VARCHAR NOT NULL UNIQUE,  email VARCHAR UNIQUE, password TEXT UNIQUE, dob VARCHAR, gender CHAR, weight NUMBER, height NUMBER)");
-        db.execSQL("Create table measurement (ID INTEGER PRIMARY KEY AUTOINCREMENT, temprature VARCHAR, bp VARCHAR, heartrate VARCHAR, bmi VARCHAR, date TEXT, uname VARCHAR, FOREIGN KEY (uname)\n" +
+        db.execSQL("Create table registeruser (ID INTEGER PRIMARY KEY AUTOINCREMENT,  username VARCHAR NOT NULL UNIQUE,  email VARCHAR UNIQUE, password TEXT UNIQUE, dob VARCHAR, gender CHAR, weight NUMBER, height NUMBER, image BLOB DEFAULT X'00', UNIQUE(username, email))");
+        db.execSQL("Create table measurement (ID INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, type VARCHAR, value VARCHAR, uname VARCHAR, FOREIGN KEY (uname)\n" +
                 "REFERENCES registeruser (username))");
        // db.execSQL("Create table user_profile (ID INTEGER PRIMARY KEY,  username VARCHAR NOT NULL,  email VARCHAR, password TEXT)");
 
@@ -52,46 +61,160 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean CheckIsInDBorNot(String uname) {
         String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE  username ='"+uname+"'" ;
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        if (cursor.getCount() <= 0) {
+        Cursor cursor = db.rawQuery( "SELECT * FROM " + TABLE_NAME + " WHERE  username ='"+uname+"'", null);
+        if (cursor.getCount() == 0) {
             cursor.close();
             return false;
         }
         cursor.close();
         return true;
     }
+
+    public boolean isValueExist(String user, String email){
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COL_3 + " = ?" + " and " + COL_2 + "=?";
+        String[] whereArgs = {user, email};
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, whereArgs);
+
+        int count = cursor.getCount();
+
+        cursor.close();
+
+        return count >= 1;
+    }
+
     public long addUser(String email, String user, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("email", email);
         contentValues.put("username", user);
         contentValues.put("password", password);
+        long res=0;
+        if(!isValueExist(user, email)) {
+            res = db.insertWithOnConflict("registeruser", null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+            System.out.print(res);
+            Log.d("kkkkkkkkkk", "" + res);
+            db.close();
+        }
+            return res;
 
-        long res = db.insertWithOnConflict("registeruser", null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
-        System.out.print(res);
-        Log.d("kkkkkkkkkk",""+ res);
-        db.close();
-        return res;
     }
+
+    public int updateProfile(String user, String dob, String gender, String height, String weight, byte[] image){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String[] whereArgs ={user};
+        String where = "username=?";
+        values.put("username", user);
+        values.put("dob", dob);
+        values.put("gender", gender);
+
+        values.put("height", height);
+
+        values.put("weight", weight);
+        values.put("image", image);
+
+        return db.update("registerUser", values, where, whereArgs);
+    }
+
+    public Cursor fetchProfile(String uname){
+        //SQLiteDatabase db = getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery( "SELECT * FROM " + TABLE_NAME + " WHERE  username ='"+uname+"'", null);
+        if (cursor.getCount() == 0) {
+            cursor.close();
+
+        }
+        Log.d("Cursor", DatabaseUtils.dumpCursorToString(cursor)) ;
+
+        return cursor;
+    }
+
+
+    public Cursor fetchMeasurement(String uname){
+        //SQLiteDatabase db = getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery( "SELECT * FROM " + TABLE_NAME2 + " WHERE  uname ='"+uname+"'", null);
+        if (cursor.getCount() == 0) {
+            cursor.close();
+
+        }
+        Log.d("Cursor", DatabaseUtils.dumpCursorToString(cursor));
+
+        return cursor;
+    }
+
+
+    public Bitmap getImage(String uname) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Bitmap bmp = null;
+        byte[] blob;
+        Cursor c = db.rawQuery("SELECT image FROM " + TABLE_NAME + " WHERE  username ='" + uname + "'", null);
+        if (c.moveToNext())
+        {
+            blob = c.getBlob(0);
+            c.close();
+            return BitmapFactory.decodeByteArray(blob, 0, blob.length);
+    }
+
+        if (c != null && !c.isClosed()) {
+            c.close();
+        }
+
+        return null;
+
+    }
+
+
     public long addMeasurement(String user, String value , String type){
         SQLiteDatabase db = this.getWritableDatabase();
+        String bmi =null;
+        String bp= null;
+        String temp= null;
+        String heart = null;
+
         ContentValues contentValues = new ContentValues();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date datee = new Date();
-        contentValues.put("user", user);
+        contentValues.put("uname", user);
         contentValues.put("date", dateFormat.format(datee));
-        if (type == "TEMP"){
-            contentValues.put("temp", value);
-        }
-        else if(type == "BP"){
-            contentValues.put("bp", value);
-        }
-        else if(type == "HEART"){
-            contentValues.put("heartrate", value);
-        }
-        else if(type == "BMI"){
-            contentValues.put("bmi", value);
-        }
+        contentValues.put("value", value);
+        contentValues.put("type", type);
+
+//        if (type == "TEMP"){
+//            contentValues.put("temprature", value);
+//            contentValues.put("bp", bp);
+//            contentValues.put("heartrate", heart);
+//            contentValues.put("bmi", bmi);
+//
+//
+//
+//        }
+//        else if(type == "BP"){
+//            contentValues.put("bp", value);
+//            contentValues.put("heartrate", heart);
+//            contentValues.put("bmi", bmi);
+//            contentValues.put("temprature", temp);
+//
+//
+//        }
+//        else if(type == "HEART"){
+//            contentValues.put("heartrate", value);
+//            contentValues.put("bmi", bmi);
+//            contentValues.put("temprature", temp);
+//            contentValues.put("bp", bp);
+//
+//        }
+//        else if(type == "BMI"){
+//            contentValues.put("bmi", value);
+//            contentValues.put("temprature", temp);
+//            contentValues.put("bp", bp);
+//            contentValues.put("heartrate", heart);
+//
+//        }
         long res = db.insert ("measurement", null, contentValues);
         System.out.print(res);
         Log.d("kkkkkkkkkk",""+ res);

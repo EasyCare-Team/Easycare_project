@@ -46,11 +46,11 @@ public class Signup_Fragment extends Fragment {
                 String user = e2.getText().toString().trim();
                 String pwd =  e3.getText().toString().trim();
                 String cnf_pwd = e4.getText().toString().trim();
-                if(!(db.CheckIsInDBorNot(user))) {
+                boolean check = db.isValueExist(user, email);
+                if(check) {
                     Toast.makeText(getContext(), "User already exists", Toast.LENGTH_SHORT).show();
                 }
-
-                    if (email.equals("")  && user.equals("")&& pwd.equals("") && cnf_pwd.equals("")) {
+                if(email.equals("")  && user.equals("")&& pwd.equals("") && cnf_pwd.equals("")) {
                     Toast.makeText(getContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -68,7 +68,7 @@ public class Signup_Fragment extends Fragment {
                                 e4.setText("");
 
                             } else {
-                                Toast.makeText(getContext(), "Registration error", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "User already exists", Toast.LENGTH_SHORT).show();
                                 e1.setText("");
                                 e2.setText("");
                                 e3.setText("");

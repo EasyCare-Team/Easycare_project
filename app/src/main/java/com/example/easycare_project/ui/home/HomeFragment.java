@@ -14,7 +14,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.easycare_project.AdviceListItem;
 import com.example.easycare_project.R;
+import com.example.easycare_project.ui.AdviceFragment;
 import com.example.easycare_project.ui.Measure.MeasureFragment;
 import com.example.easycare_project.ui.Prediction.PredictionFragment;
 import com.example.easycare_project.ui.Report.ReportFragment;
@@ -23,7 +25,10 @@ public class HomeFragment extends Fragment {
     CardView cardView1;
     CardView cardView2;
     CardView cardView3;
-
+    public HomeFragment()
+    {
+        setRetainInstance(true);
+    }
     private HomeViewModel homeViewModel;
     View root;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -31,10 +36,12 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
          root = inflater.inflate(R.layout.fragment_home, container, false);
+
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         cardView1 = root.findViewById(R.id.card_view1);
         cardView2 = root.findViewById(R.id.card_view2);
         cardView3 = root.findViewById(R.id.card_view3);
+
 
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +53,7 @@ public class HomeFragment extends Fragment {
 
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, tool);
+                fragmentTransaction.replace(R.id.nav_host_fragment, tool).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
@@ -61,7 +68,7 @@ public class HomeFragment extends Fragment {
                 ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Report");
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, report);
+                fragmentTransaction.replace(R.id.nav_host_fragment, report).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
@@ -70,11 +77,11 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 //                Intent i = new Intent(getContext(), Measure_page.class);
 //                startActivity(i);
-                PredictionFragment prediction  = new PredictionFragment();
-                ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Prediction");
+                AdviceFragment advice  = new AdviceFragment();
+                ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Advice");
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, prediction);
+                fragmentTransaction.replace(R.id.nav_host_fragment, advice).addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

@@ -1,5 +1,6 @@
 package com.example.easycare_project.ui.Result;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.bluetooth.BluetoothAdapter;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import com.example.easycare_project.DatabaseHelper;
 import com.example.easycare_project.R;
+import com.example.easycare_project.ui.Report.ReportFragment;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,6 +57,7 @@ public class ResultFragment extends Fragment {
     String uname;
     String type;
     DatabaseHelper databaseHelper;
+    String data = null;
     public static ResultFragment newInstance() {
         return new ResultFragment();
     }
@@ -65,6 +68,8 @@ public class ResultFragment extends Fragment {
         resultViewModel =
                 ViewModelProviders.of(this).get(ResultViewModel.class);
         View root = inflater.inflate(R.layout.result_fragment, container, false);
+        databaseHelper = new DatabaseHelper(getContext());
+
         SharedPreferences prefs = getContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
          uname = prefs.getString("uname", "No name defined");
          type = getArguments().getString("type");
@@ -73,6 +78,16 @@ public class ResultFragment extends Fragment {
         text = root.findViewById(R.id.entry);
         myLabel = root.findViewById(R.id.label);
         Label = root.findViewById(R.id.labell);
+       // String type =  getArguments().getString("type");
+        ReportFragment report = new ReportFragment();
+        Bundle args = new Bundle();
+        args.putString("type", type);
+        report.setArguments(args);
+//        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.nav_host_fragment, report);
+//        transaction.addToBackStack(null);
+
+
         measure.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
@@ -92,7 +107,7 @@ public class ResultFragment extends Fragment {
             {
                 try
                 {
-                    //saveData();
+                    saveData(data);
                     sendData();
                 }
                 catch (IOException ex) { }
@@ -130,7 +145,7 @@ public class ResultFragment extends Fragment {
             }
     }
 
-    void saveData(String value) throws IOException {
+    void saveData(String value) {
         long val = databaseHelper.addMeasurement(uname, value, type);
         if (val > 0) {
             Toast.makeText(getContext(), "Successfully saved", Toast.LENGTH_SHORT).show();
@@ -140,17 +155,18 @@ public class ResultFragment extends Fragment {
     {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //Standard SerialPortService ID
         // UUID uuid = UUID.fromString("94f39d29-7d6d-437d-973b-fba39e49d4ee");
-        mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
-        mmSocket.connect();
-        mmOutputStream = mmSocket.getOutputStream();
-        mmInputStream = mmSocket.getInputStream();
-
+        if (mmDevice != null) {
+            mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(uuid);
+            mmSocket.connect();
+            mmOutputStream = mmSocket.getOutputStream();
+            mmInputStream = mmSocket.getInputStream();
+        }
         beginListenForData();
 
         myLabel.setText("Bluetooth Opened");
     }
 
-    void beginListenForData()
+    void beginListenForData ()
     {
         final Handler handler = new Handler();
         final byte delimiter = 10; //This is the ASCII code for a newline character
@@ -166,6 +182,7 @@ public class ResultFragment extends Fragment {
                 {
                     try
                     {
+
                         int bytesAvailable = mmInputStream.available();
                         if(bytesAvailable > 0)
                         {
@@ -174,16 +191,22 @@ public class ResultFragment extends Fragment {
                             for(int i=0;i<bytesAvailable;i++)
                             {
 
-                                final String data = new String(packetBytes, 0, packetBytes.length );
+                                 data = new String(packetBytes, 0, packetBytes.length );
                                 readBufferPosition = 0;
 
                                 handler.post(new Runnable()
                                 {
-                                    public void run()
+                                    public void run ()
                                     {
                                         myLabel.setText("Your measurement is: ");
+
                                         Label.setText(data);
-                                       // saveData(data);
+//                                        try {
+//                                            saveData(data);
+//                                       }
+//                                        catch (Exception e){
+//
+//                                        }
 
                                     }
                                 });

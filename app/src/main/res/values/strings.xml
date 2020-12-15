@@ -18,14 +18,17 @@
     <string name="measure_temperature">Measure Temperature</string>
     <string name="measure">Measure vitals</string>
     <string name="report">Report</string>
-    <string name="prediction">Prediction</string>
+    <string name="advice">Advice</string>
     <string name="BP">BP</string>
     <string name="temp">temprature</string>
     <string name="BMI">BMI</string>
     <string name="Heartrate">Heart rate</string>
     <string name="Logout">Logout </string>
     <string name="easycare">EasyCare </string>
-
+    <string name="drawer_open">drawer_open </string>
+    <string name="moto">The greatest health is wealth </string>
+    <string name="drawer_close">drawer_close </string>
+    <string name="measure_vitals">Measure Vitals </string>
 <!--    <string name="menu_tools">Tools</string>-->
 <!--    <string name="menu_share">Share</string>-->
 <!--    <string name="menu_send">Send</string>-->
